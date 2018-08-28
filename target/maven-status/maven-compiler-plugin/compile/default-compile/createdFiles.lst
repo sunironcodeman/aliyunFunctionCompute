@@ -1,0 +1,5 @@
+example\model\Output$OutputBuilder.class
+example\model\Input.class
+example\model\Output.class
+example\FCController.class
+example\entity\Person.class
