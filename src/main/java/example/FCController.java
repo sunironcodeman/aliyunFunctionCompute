@@ -3,9 +3,11 @@ package example;
 import com.aliyun.fc.runtime.Context;
 import com.aliyun.fc.runtime.PojoRequestHandler;
 import com.aliyun.fc.runtime.StreamRequestHandler;
+import example.config.DataBaseConfig;
 import example.entity.Person;
 import example.model.Input;
 import example.model.Output;
+import org.apache.commons.dbutils.QueryRunner;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,6 +18,9 @@ public class FCController implements PojoRequestHandler<Input, Output> {
 
     @Override
     public Output handleRequest(Input input, Context context){
+        String sql = "";
+        QueryRunner queryRunner = new QueryRunner(DataBaseConfig.dbConfig());
+//        queryRunner.query(sql,);
         return Output.builder()
                 .length(input.getIntegerList().size())
                 .welcome("Hello "+ input.getName())
